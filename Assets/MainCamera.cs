@@ -56,16 +56,16 @@ namespace Scene
 
         [SerializeField] public Camera mainCam;
 
-        [Header("Текущие значения")]
-       
-        [SerializeField] private float maxZoomOnGlobal = 40f;
-        [SerializeField] private float minZoomOnGlobal = 250f;
-        [SerializeField] private float wheelSpeed = 70f;
-        [SerializeField] private float leftBound = float.MinValue;
-        [SerializeField] private float rightBound = float.MaxValue;
-        [SerializeField] private float upBound = float.MaxValue;
         [SerializeField] private float downBound = float.MinValue;
         [SerializeField] private bool freezeSwipes;
+        [SerializeField] private float leftBound = float.MinValue;
+        [Header("Текущие значения")]
+        [SerializeField] private float maxZoomOnGlobal = 40f;
+
+        [SerializeField] private float minZoomOnGlobal = 250f;
+        [SerializeField] private float rightBound = float.MaxValue;
+        [SerializeField] private float upBound = float.MaxValue;
+        [SerializeField] private float wheelSpeed = 70f;
 
         #endregion SERIALIZE FIELDS
 
@@ -77,7 +77,7 @@ namespace Scene
         private Vector2 cameraStartPos;
 
         #endregion PRIVATE VARIABLES
-       
+
         #region PRIVATE METHODS
 
         private void Awake()
