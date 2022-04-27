@@ -45,7 +45,6 @@ public class InfoWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         //анимациями загрузки
         StartCoroutine(regionNameLoader.StartLoading());
         StartCoroutine(regionImageLoader.StartLoading());
-
         //заглушки до реализации клиент-серверного взаимодействия
 
         //Текст названия региона
@@ -58,7 +57,13 @@ public class InfoWindow : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void ShowInfoPanel()
     {
-        animator.SetTrigger("Show");
+        if (!animator.GetBool("IsShowing"))
+            animator.SetTrigger("Show");
+    }
+
+    public void SetWindowShowing(string val)
+    {
+        animator.SetBool("Show", bool.Parse(val));
     }
 
     private void Awake()
