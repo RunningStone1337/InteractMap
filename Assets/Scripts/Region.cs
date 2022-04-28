@@ -1,3 +1,4 @@
+using Scene;
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,6 +9,7 @@ public class Region : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
 
     [SerializeField] private Animator regionAnimator;
     [SerializeField] private InfoWindow infoWindow;
+    [SerializeField] private MainCamera camera;
     [SerializeField] private string regionNameKey;
     public Animator RegionAnimator
     {
@@ -19,6 +21,8 @@ public class Region : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         }
         private set { regionAnimator = value; }
     }
+
+    public bool RegionClickPermissed { get; private set; } = true;
     #region Public Methods
 
     public void OnPointerClick(PointerEventData eventData)
@@ -27,7 +31,10 @@ public class Region : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         Debug.Log("Region click");
 #endif
         if (!string.IsNullOrEmpty(regionNameKey))
-            OnRegionClick?.Invoke(regionNameKey);
+        {
+            if (RegionClickPermissed)
+                OnRegionClick?.Invoke(regionNameKey);
+        }
         else
         {
 #if UNITY_EDITOR
@@ -55,15 +62,26 @@ public class Region : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     private void Awake()
     {
         infoWindow = GameObject.FindGameObjectWithTag("InfoPanel").GetComponent<InfoWindow>();
+        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MainCamera>();
+        camera.OnCameraSwipeStartEvent += OnCameraSwipeStartCallback;
+        camera.OnCameraSwipeEndEvent += OnCameraSwipeEndCallback;
         OnRegionClick += infoWindow.OnRegionClickCallback;
         var col = gameObject.AddComponent<MeshCollider>();
         col.sharedMesh = gameObject.GetComponent<MeshFilter>().mesh;
+    }
+
+    private void OnCameraSwipeEndCallback()
+    {
+        RegionClickPermissed = true;
+    }
+
+    private void OnCameraSwipeStartCallback()
+    {
+        RegionClickPermissed = false;
     }
 
     private void OnDestroy()
     {
         OnRegionClick -= infoWindow.OnRegionClickCallback;
     }
-
-    
 }

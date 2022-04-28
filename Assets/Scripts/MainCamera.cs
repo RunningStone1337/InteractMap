@@ -71,9 +71,6 @@ namespace Scene
 
         #region PRIVATE VARIABLES
 
-        private const float blue = 0.07843138f;
-        private const float green = 0.254902f;
-        private const float red = 0.05882353f;
         private Vector2 cameraStartPos;
 
         #endregion PRIVATE VARIABLES
@@ -87,7 +84,6 @@ namespace Scene
             mainCam.orthographicSize = 30f;
             mainCam.farClipPlane = 1000f;
             mainCam.nearClipPlane = 0.3f;
-            mainCam.backgroundColor = new Color(red, green, blue, 0);
         }
 
         private void MouseScroll(float scroll)

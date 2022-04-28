@@ -10,9 +10,6 @@ public class LoadImageAnimator : MonoBehaviour
     public IEnumerator Spin()
     {
         loadImg.rectTransform.rotation = Quaternion.Euler(new Vector3(0, 0, loadImg.rectTransform.rotation.eulerAngles.z - rotatingSpeed));
-#if UNITY_EDITOR
-        Debug.Log("Вращение");
-#endif
         yield return null;
     }
 
