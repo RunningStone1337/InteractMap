@@ -97,6 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regionAnimator: {fileID: 0}
   infoWindow: {fileID: 0}
+  camera: {fileID: 0}
   regionNameKey: kaliningrad
 --- !u!95 &1897607454336088717
 Animator:
