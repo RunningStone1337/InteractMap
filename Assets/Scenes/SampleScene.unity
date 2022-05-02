@@ -835,7 +835,7 @@ PrefabInstance:
     - target: {fileID: 7005299973696728786, guid: a31e8b6c23c62504d89f84c6fd81fe3a, type: 3}
       propertyPath: regionNameKey
       value: "\u0425\u0430\u043D\u0442\u044B-\u041C\u0430\u043D\u0441\u0438\u0439\u0441\u043A\u0438\u0439
-        \u0410\u041E \u2014 \u042E\u0433\u0440\u0430"
+        \u0410\u041E - \u042E\u0433\u0440\u0430"
       objectReference: {fileID: 0}
     - target: {fileID: 7403190223192396726, guid: a31e8b6c23c62504d89f84c6fd81fe3a, type: 3}
       propertyPath: m_RootOrder
@@ -2238,7 +2238,7 @@ PrefabInstance:
     - target: {fileID: 7005299973696728786, guid: a31e8b6c23c62504d89f84c6fd81fe3a, type: 3}
       propertyPath: regionNameKey
       value: "\u0420\u0435\u0441\u043F\u0443\u0431\u043B\u0438\u043A\u0430 \u0421\u0435\u0432\u0435\u0440\u043D\u0430\u044F
-        \u041E\u0441\u0435\u0442\u0438\u044F \u2014 \u0410\u043B\u0430\u043D\u0438\u044F"
+        \u041E\u0441\u0435\u0442\u0438\u044F - \u0410\u043B\u0430\u043D\u0438\u044F"
       objectReference: {fileID: 0}
     - target: {fileID: 7403190223192396726, guid: a31e8b6c23c62504d89f84c6fd81fe3a, type: 3}
       propertyPath: m_RootOrder
