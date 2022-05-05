@@ -11,6 +11,8 @@ public class Region : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     [SerializeField] private InfoWindow infoWindow;
     [SerializeField] private MainCamera camera;
     [SerializeField] private string regionNameKey;
+    [SerializeField] private MeshCollider meshCollider;
+    [SerializeField] private MeshFilter meshFilter;
     public Animator RegionAnimator
     {
         get
@@ -53,10 +55,6 @@ public class Region : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         RegionAnimator.SetBool("RegionShow", false);
     }
 
-    //public void SetRegionShowAnimator(string val)
-    //{
-    //    RegionAnimator.SetBool("RegionShow", bool.Parse(val));
-    //}
     #endregion Public Methods
 
     private void Awake()
@@ -66,8 +64,6 @@ public class Region : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         camera.OnCameraSwipeStartEvent += OnCameraSwipeStartCallback;
         camera.OnCameraSwipeEndEvent += OnCameraSwipeEndCallback;
         OnRegionClick += infoWindow.OnRegionClickCallback;
-        var col = gameObject.AddComponent<MeshCollider>();
-        col.sharedMesh = gameObject.GetComponent<MeshFilter>().mesh;
     }
 
     private void OnCameraSwipeEndCallback()
